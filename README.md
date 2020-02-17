@@ -49,9 +49,15 @@ Delete user by id
     - Should delete the user, after the call the user will not be returned by any of the previous APIs.
 ```
 
-You can either take the file and create a new project in your preferred language/environment, or use the attached boilerplate written in node js and implement only the logic part.
+You can either take the `data.csv` file and create a new project in your preferred language/environment, or use the attached boilerplate written in node.js and implement only the logic part.
 
 ## Using boilerplate
+
+### Use this repo as template
+
+Please don't fork it, by using the template button this repo will be cloned under your space.
+
+![template](https://i.ibb.co/0fq7CHp/template.png)
 
 ### Install node
 Follow the instructions here:
