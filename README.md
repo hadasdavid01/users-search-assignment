@@ -3,7 +3,11 @@
 ## Requirements
 Use the file `data.csv` as the data source.
 
-Implement the following APIs, using memory only - no external DB (keep efficiency in mind):
+Implement the following APIs, using memory only - no external DB.
+<br>
+**Keep efficiency in mind, the user base (data.csv) can grow exponentially
+<br>
+Searching the data linearly is not a good enough solution**
 ```
 Get user by Id
     - GET /users/a2ee2667-c2dd-52a7-b9d8-1f31c3ca4eae
