@@ -1,12 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const usersModel = require('./model/users');
+const raedFromJson = require('./model/json_util');
 const PORT = process.env.PORT || 8000;
-
 const app = express();
 const SUPPORTED_QUERY = ['country', 'name', 'email', 'age'];
 const BAD_QUERY_MSG = `Only one query param is supported, and it must be one of the following: ${SUPPORTED_QUERY.join(', ')}`;
 app.use(bodyParser.json());
+const getData = require("./model/csv_transformer");
+const readFromJsonToHash = require("./model/csv_transformer")
+
 
 app.get('/users/:id', async (req, res, next) => {
     let id = req.params.id;
@@ -79,6 +82,9 @@ app.use((req, res) => {
     res.status(404).json({ message: 'Path not found, only the following paths are supported: GET /users/:id, GET /users' });
   });
 
-  server = app.listen(PORT, function() {
-    console.log(`Test Server listening.. Access it using address: http://localhost:${PORT}`);
+  server = app.listen(PORT, async () => {
+      await raedFromJson('./blackList.json')
+      await getData('./data.csv')
+
+      console.log(`Test Server listening.. Access it using address: http://localhost:${PORT}`);
   });
